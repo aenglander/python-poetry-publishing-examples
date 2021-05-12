@@ -1,0 +1,13 @@
+services:
+  pypi:
+    image: pypiserver/pypiserver:latest
+    command: "--passwords /etc/pypi/.htpasswd"
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./etc-pypi:/etc/pypi
+      - pypi-data:/data
+
+volumes:
+  pypi-data: {}
+
